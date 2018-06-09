@@ -18,4 +18,4 @@ function checkWhichUSer($x, $y) {
     } 
 }
 
-?>
+?>  

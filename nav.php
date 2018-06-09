@@ -13,17 +13,23 @@ $list4Activation='';
 
 
 
-function checkingactivation(){
     $uriOfPage=$_SERVER['REQUEST_URI'];
-if (strrpos( $uriOfPage,"incharge") != false  ) {
+if (strrpos( $uriOfPage,"editprofile.php") != false  ) {
     $list1Activation = "active";
 }
 
-elseif(strrpos( $uriOfPage,"incharge") != false  ){
+elseif(strrpos( $uriOfPage,"uniounCouncil.php") != false  ){
+    $list2Activation="active";
+}
+   
 
+
+elseif(strrpos( $uriOfPage,"incharge") != false  ){
+    $list3Activation="active";
 }
-    
-}
+
+
+
 
 
 /*
@@ -40,16 +46,16 @@ echo '<br>';
 ?>
                     <ul>
                         <li>
-                            <a class="active" href="<?=  $arrayOfHrefList[0] ?>"><?=  $arrayOfNavList[0] ?></a>
+                            <a class="<?=  $list1Activation ?>" href="<?=  $arrayOfHrefList[0] ?>"><?=  $arrayOfNavList[0] ?></a>
                         </li>
                         <li>
-                            <a  href="<?=  $arrayOfHrefList[1] ?>"><?=  $arrayOfNavList[1] ?></a>
+                            <a class="<?=   $list2Activation ?>" href="<?=  $arrayOfHrefList[1] ?>"><?=  $arrayOfNavList[1] ?></a>
                         </li>
                         <li>
-                            <a href="<?=  $arrayOfHrefList[2] ?>"><?=  $arrayOfNavList[2] ?></a>
+                            <a class="<?=  $list3Activation ?>" href="<?=  $arrayOfHrefList[2] ?>"><?=  $arrayOfNavList[2] ?></a>
                         </li>
                         <li>
-                            <a href="<?=  $arrayOfHrefList[3] ?>"><?=  $arrayOfNavList[3] ?></a>
+                            <a class=" " href="<?=  $arrayOfHrefList[3] ?>"><?=  $arrayOfNavList[3] ?></a>
                         </li>
                     <?php
                     if ($_SESSION["userPresent"]=='incharge') {
