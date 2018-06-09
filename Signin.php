@@ -2,14 +2,16 @@
 <?php include 'checksUSer.php';?>
 
 <?php 
-
+session_start();
 if (isset($_REQUEST["logIn"])== true) {
 $userName=$_REQUEST["Username"];
 $passWord=$_REQUEST["pwd"];
 
 //using function from checksUSer.php
   $User=checkWhichUSer($userName, $passWord);
-  
+  $_SESSION["userPresent"]=$User;
+ //remove it after all done
+  //var_dump($_SESSION["userPresent"]);
   if ($User=="incharge") {
    header("location:incharge.php");
   }

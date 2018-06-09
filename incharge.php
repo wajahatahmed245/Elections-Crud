@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    hello incharge
+<?php 
+session_start();
+
+include 'header.php';
+?>
+
+<?php
+
+
+?>
+
+<?php
+//remove
+//$_SESSION["userPresent"]
+
+?>
+
+<div class="row" style="overflow:auto">
+        <nav class="menu col-sm-3">
+            <?php include 'nav.php';?>
+        </nav>
+         
+        
+   
+
+    </div>
+    hello incharge 
+    
+    <?php echo " ". $_SESSION["userPresent"]?>
 </body>
 </html>
