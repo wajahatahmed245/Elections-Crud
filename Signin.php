@@ -1,10 +1,19 @@
 <?php include 'header.php';?>
-<?php include 'databaseconnection.php';?>
+<?php include 'checksUSer.php';?>
 
 <?php 
 
 if (isset($_REQUEST["logIn"])== true) {
-  # code...
+$userName=$_REQUEST["Username"];
+$passWord=$_REQUEST["pwd"];
+
+//using function from checksUSer.php
+  $User=checkWhichUSer($userName, $passWord);
+  
+  if ($User=="incharge") {
+   header("location:incharge.php");
+  }
+ 
 }
 
 
