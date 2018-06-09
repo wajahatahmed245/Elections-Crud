@@ -32,6 +32,7 @@ include 'editprofileDB.php'
                     <div class="form-group">
                         <label for="pwd">New Password:</label>
                         <input type="password" name="pwd" class="form-control" id="pwd" required>
+                      
                     </div>
 
 
@@ -41,6 +42,7 @@ include 'editprofileDB.php'
                         <input type="password" name="ConfirmNewPassword" class="form-control" id="Confirm New Password" required>
                     </div>
             </div>
+            <p ></p>
             <div class="card-footer">
                 <button type="submit" name=changePasswordIncharge class="btn btn-success btn-md">Update</button>
             </div>

@@ -19,7 +19,11 @@ $sql = "SELECT * FROM users";
 $result = mysqli_query($conn, $sql);
 echo "<br>";
 echo mysqli_num_rows($result);  
-echo "<br>";/*
+echo "<br>";
+
+
+
+/*
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {

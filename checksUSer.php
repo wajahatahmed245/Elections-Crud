@@ -8,11 +8,11 @@ function checkWhichUSer($x, $y) {
         while($row = mysqli_fetch_assoc($result)) {
            // echo "id: " . $row["User_ID"]. " - Name: " . . " " . $row["User_password"]. "<br>";
             if ($x==$row["User_Name"] && $y==$row["User_password"]) {
-              return $row["User_designation"];
+              return array($row["User_designation"],$row["User_ID"]);
             }
 
             else {
-                return "wrong";
+                return false;
             }
         }
     } 

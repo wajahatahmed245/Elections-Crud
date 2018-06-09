@@ -9,10 +9,11 @@ $passWord=$_REQUEST["pwd"];
 
 //using function from checksUSer.php
   $User=checkWhichUSer($userName, $passWord);
-  $_SESSION["userPresent"]=$User;
+  $_SESSION["userPresent"]=$User[0];
+  $_SESSION["userPresentID"]=$User[1];
  //remove it after all done
   //var_dump($_SESSION["userPresent"]);
-  if ($User=="incharge") {
+  if ($User[0]=="incharge") {  
    header("location:incharge.php");
   }
  
