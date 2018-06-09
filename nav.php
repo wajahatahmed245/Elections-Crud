@@ -1,22 +1,64 @@
 
 <?php include 'navControl.php'; ?>
 <?php 
+
 //caliing function from navcontrol.php
 $arrayOfNavList=naveSetting($_SESSION["userPresent"]);
+$arrayOfHrefList=hrefSetting($_SESSION["userPresent"]);
 
+$list1Activation='';
+$list2Activation='';
+$list3Activation='';
+$list4Activation='';
+
+
+
+function checkingactivation(){
+    $uriOfPage=$_SERVER['REQUEST_URI'];
+if (strrpos( $uriOfPage,"incharge") != false  ) {
+    $list1Activation = "active";
+}
+
+elseif(strrpos( $uriOfPage,"incharge") != false  ){
+
+}
+    
+}
+
+
+/*
+remove
+
+echo $_SERVER['REQUEST_URI'];
+var_dump($_SERVER['REQUEST_URI']);
+echo '<br>';
+if (strrpos( $_SERVER['REQUEST_URI'],"incharge") != false  ) {
+    echo 'this is '. $_SERVER['REQUEST_URI'];
+}
+echo '<br>';
+*/
 ?>
                     <ul>
                         <li>
-                            <a class="active" href="#home"><?=  $arrayOfNavList[0] ?></a>
+                            <a class="active" href="<?=  $arrayOfHrefList[0] ?>"><?=  $arrayOfNavList[0] ?></a>
                         </li>
                         <li>
-                            <a href="Signin.php"><?=  $arrayOfNavList[1] ?></a>
+                            <a  href="<?=  $arrayOfHrefList[1] ?>"><?=  $arrayOfNavList[1] ?></a>
                         </li>
                         <li>
-                            <a href="#contact"><?=  $arrayOfNavList[2] ?></a>
+                            <a href="<?=  $arrayOfHrefList[2] ?>"><?=  $arrayOfNavList[2] ?></a>
                         </li>
                         <li>
-                            <a href=""><?=  $arrayOfNavList[3] ?></a>
+                            <a href="<?=  $arrayOfHrefList[3] ?>"><?=  $arrayOfNavList[3] ?></a>
                         </li>
+                    <?php
+                    if ($_SESSION["userPresent"]=='incharge') {
+                       echo "<li>";
+                       echo "<a href='logout.php'>Logout</a>";
+                    echo '</li>';
+                    }
+                    ?>
+
+
                     </ul>
                     
