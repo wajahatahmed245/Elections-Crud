@@ -15,6 +15,11 @@ $passWord=$_REQUEST["pwd"];
   //var_dump($_SESSION["userPresent"]);
   if ($User[0]=="incharge") {  
    header("location:incharge.php");
+   $_SESSION['wrongOldPassword']=null;
+  }
+  else{
+    $_SESSION['wrongOldPassword']="Incorrect password fill it again";
+   
   }
  
 }
@@ -47,9 +52,12 @@ $passWord=$_REQUEST["pwd"];
         <label for="pwd">Password:</label>
         <input type="password" name="pwd" class="form-control" id="pwd" required>
     </div>
-
+    <p class="text-danger"><?= $_SESSION['wrongOldPassword'] ?></p>
       </div> 
-      <div class="card-footer">  <button type="submit" name=logIn class="btn btn-success btn-md">Log in</button>  </div>
+      <div class="card-footer">  <button type="submit" name=logIn class="btn btn-success btn-md">Log in</button> 
+      <a href="index.php"> <button type="button"  name=Back class="btn btn-success btn-md">  Back</button></a>
+    </div>
+      
     </div>
   </div>
   

@@ -32,13 +32,15 @@ function isOldPasswordCorrect($old){
     } 
 }
 
-
+//remove
 //global variable for validiations
-$recordUpdated='';
+//$recordUpdated=null;
+//$GLOBALS['recordUpdated'];
 
+//var_dump($GLOBALS['recordUpdated']);
 
 if (isset($_REQUEST["changePasswordIncharge"])== true) {
-
+    
     
     $oldPaswarod=$_REQUEST["oldPaswarod"];
     $newPaswarod=$_REQUEST["pwd"];
@@ -47,6 +49,14 @@ if (isset($_REQUEST["changePasswordIncharge"])== true) {
     //using function from above
     $isNewPaswwordConfirmed=checkingNewPasword($newPaswarod, $ConfirmNewPassword);
     $isOldpasswordConfirmed=isOldPasswordCorrect($oldPaswarod);
+    if ($isOldpasswordConfirmed == false) {
+        $_SESSION['wrongOldPassword']="Your old password is incorrect";
+    }
+
+    if ($isOldpasswordConfirmed == true && $isNewPaswwordConfirmed == false) {     
+    $_SESSION['newPasswordConfirmMatchWrong']="Rewrite your password Confirm password is written wrong";
+    }
+   
    $userId= $_SESSION["userPresentID"];
 
 
@@ -54,7 +64,10 @@ if (isset($_REQUEST["changePasswordIncharge"])== true) {
         include 'databaseconnection.php';
         $sqlForUpdate="UPDATE users SET User_password='$newPaswarod' WHERE User_ID ='$userId'";
        if (mysqli_query($conn, $sqlForUpdate)) {
-            $recordUpdated = "Updated successfully";
+        $_SESSION['recordUpdate'] = "Updated successfully";
+          //remove
+            //  $GLOBALS['recordUpdated']=$GLOBALS['$recordUpdated'];
+            
             
         } else {
             echo "Error updating record: " . mysqli_error($conn);

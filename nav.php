@@ -10,6 +10,7 @@ $list1Activation='';
 $list2Activation='';
 $list3Activation='';
 $list4Activation='';
+$list5Activation='';
 
 
 
@@ -25,11 +26,22 @@ elseif(strrpos( $uriOfPage,"uniounCouncil.php") != false  ){
 
 
 elseif(strrpos( $uriOfPage,"incharge") != false  ){
-    $list3Activation="active";
+    $list3Activation=null;
 }
 
 
+elseif(strrpos( $uriOfPage,"Voterstable.php") != false  ){
+    $list5Activation="active";
+}
 
+
+elseif(strrpos( $uriOfPage,"index.php") != false && $_SESSION["userPresent"] == null ){
+    $list1Activation="active";
+}
+
+elseif(strrpos( $uriOfPage,"fillform.php") != false  ){
+    $list3Activation="active";
+}
 
 
 /*
@@ -58,7 +70,16 @@ echo '<br>';
                             <a class=" " href="<?=  $arrayOfHrefList[3] ?>"><?=  $arrayOfNavList[3] ?></a>
                         </li>
                     <?php
-                    if ($_SESSION["userPresent"]=='incharge') {
+
+
+if ($_SESSION["userPresent"] == "incharge") {
+    echo "<li>";
+    echo "<a class='. $list5Activation .' href='Voterstable.php'>Voter Form</a>";
+ echo '</li>';
+ }
+
+
+                    if ($_SESSION["userPresent"] != null) {
                        echo "<li>";
                        echo "<a href='logout.php'>Logout</a>";
                     echo '</li>';

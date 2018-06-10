@@ -22,7 +22,7 @@ echo mysqli_num_rows($result);
 echo "<br>";
 
 
-
+//remove
 /*
 if (mysqli_num_rows($result) > 0) {
     // output data of each row

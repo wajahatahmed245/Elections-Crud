@@ -7,6 +7,12 @@ include 'header.php';
 <?php
 
 session_start();
+
+if ($_SESSION["userPresent"] != "incharge") {
+    $_SESSION["userPresent"]=null;
+    header("location:index.php");
+}
+
 ?>
 
 <?php
@@ -20,11 +26,11 @@ session_start();
         <nav class="menu col-sm-3">
             <?php include 'nav.php';?>
         </nav>
+        <?php include 'welcome.php';?> 
     </div>
-    </div>
+    </div>  
     
-    hello incharge 
     
-    <?php echo " ". $_SESSION["userPresent"]?>
+    
 </body>
 </html>

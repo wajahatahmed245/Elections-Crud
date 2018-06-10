@@ -1,5 +1,11 @@
 <?php include 'header.php';
 session_start();
+
+$_SESSION['recordUpdate']=null;
+
+$_SESSION['newPasswordConfirmMatchWrong']=null;
+$_SESSION['wrongOldPassword']=null;
+
 include 'editprofileDB.php'
 ?>
 
@@ -26,7 +32,7 @@ include 'editprofileDB.php'
                         <label for="oldPaswarod">Old Password:</label>
                         <input type="password" class="form-control" name="oldPaswarod" id="oldPaswarod" required>
                     </div>
-
+                    <p class="text-danger"><?= $_SESSION['wrongOldPassword'] ?></p>
 
 
                     <div class="form-group">
@@ -41,8 +47,10 @@ include 'editprofileDB.php'
                         <label for="Confirm New Password">Confirm New Password:</label>
                         <input type="password" name="ConfirmNewPassword" class="form-control" id="Confirm New Password" required>
                     </div>
-            </div>
-            <p ></p>
+
+                    <p class="text-danger"><?=  $_SESSION['newPasswordConfirmMatchWrong'] ?></p>
+                    </div>
+            <p class="text-success"><?= $_SESSION['recordUpdate'] ?></p>
             <div class="card-footer">
                 <button type="submit" name=changePasswordIncharge class="btn btn-success btn-md">Update</button>
             </div>

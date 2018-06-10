@@ -39,9 +39,9 @@ function hrefSetting($sessionVariableForHrief) {
     }
     else
     {
-        $href1="#Home";
+        $href1="index.php";
         $href2="Signin.php";
-        $href3="#contact";
+        $href3="fillform.php";
         $href4="#About";
         return array($href1,$href2,$href3,$href4);
     }    
