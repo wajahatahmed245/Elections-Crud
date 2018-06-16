@@ -10,7 +10,7 @@ echo 'var_dump($_SESSION["userPresent"]) = ';
         <nav class="menu col-sm-3">
             <?php include 'nav.php';?>
         </nav>
-        <?php include 'welcome.php';?> 
+      
         
    
 

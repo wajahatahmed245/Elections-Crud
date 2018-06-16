@@ -1,11 +1,20 @@
 <?php include 'header.php';
 session_start();
+//remove var 
+$_SESSION["Processed"]=null;
+var_dump($_SESSION["userPresent"]);
+var_dump($_SESSION["Processed"]);
+
+
 $userFormFill=null;
 $uriOfPage=$_SERVER['REQUEST_URI'];
 if (strrpos( $uriOfPage,"fillform.php") != false  ) {
     $_SESSION["userPresent"]=null;
     $_SESSION["user"]="voter";
     $userFormFill= $_SESSION["user"];
+}
+else{
+    $userFormFill=$_SESSION["userPresent"];
 }
 if (isset($_REQUEST["submitFillForm"])== true) {
     $name=$_REQUEST["name"];
@@ -64,12 +73,13 @@ if (isset($_REQUEST["submitFillForm"])== true) {
                     
                     </div>
             <p class="text-success"><?php 
-            if ($_SESSION["user"] != 'voter') {
-              echo $_SESSION["user"];
+            if ($_SESSION["Processed"] != null) {
+              echo $_SESSION["Processed"];
             }
             ?></p>
             <div class="card-footer">
                 <button type="submit" name=submitFillForm class="btn btn-success btn-md">Submit</button>
+                <a href="Voterstable.php"><button type="button" name=submitFillForm class="btn btn-success btn-md text-capitalize">back</button></a>
             </div>
     </div>
 

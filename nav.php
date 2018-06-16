@@ -30,7 +30,7 @@ elseif(strrpos( $uriOfPage,"incharge") != false  ){
 }
 
 
-elseif(strrpos( $uriOfPage,"Voterstable.php") != false  ){
+elseif(strrpos( $uriOfPage,"Voterstable.php") != false || strrpos( $uriOfPage,"viewForm.php") != false || strrpos( $uriOfPage,"createform.php") != false ){
     $list5Activation="active";
 }
 

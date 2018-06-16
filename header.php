@@ -4,7 +4,7 @@
 $uriOfPageGlobal=$_SERVER['REQUEST_URI'];
 if (strrpos( $uriOfPageGlobal,"fillform.php") == false  ) {
    
-    $_SESSION["user"]=null;
+     $_SESSION["user"]=null;
    }
 ?>
 <head>

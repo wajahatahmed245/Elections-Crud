@@ -1,5 +1,7 @@
 <?php include 'header.php';
-session_start();    
+session_start();  
+//remove var dump  
+var_dump($_SESSION["userPresent"]);
 ?>
 <div id="page" class="container">
 <hr>
@@ -11,8 +13,9 @@ session_start();
    
 <aside class="col-sm-9">
 
-<button type="button" class="btn btn-success btn-block">Button 1</button>
-<button type="button" class="btn btn-success btn-block">Button 1</button>
+<a href="viewForm.php"><button type="button" class="btn btn-success btn-block">Veiw Form</button></a>
+<br>
+<a href="createform.php"><button type="button"  class="btn btn-success btn-block text-capitalize">Create form</button></a>
 
 </aside>
 
